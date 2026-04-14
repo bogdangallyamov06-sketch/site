@@ -1,0 +1,339 @@
+/* ----- Базовые сбросы и шрифты ----- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    background: linear-gradient(145deg, #f0f7ff 0%, #e9f0fa 100%);
+    color: #1a2a3a;
+    line-height: 1.5;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ----- Шапка и печатающийся заголовок ----- */
+.header {
+    background: linear-gradient(120deg, #0b2b40, #1c5a6a);
+    color: white;
+    padding: 60px 0 70px;
+    text-align: center;
+    margin-bottom: 40px;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2);
+}
+
+.title {
+    font-size: clamp(2rem, 6vw, 3.8rem);
+    font-weight: 800;
+    margin-bottom: 20px;
+    min-height: 90px;
+    letter-spacing: -0.02em;
+    background: linear-gradient(135deg, #FFE6B0, #FFB347);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ----- Табы (вкладки) ----- */
+.tabs-section {
+    margin-bottom: 60px;
+}
+
+.tab-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 35px;
+    flex-wrap: wrap;
+}
+
+.tab-btn {
+    background: #e2e8f0;
+    border: none;
+    padding: 12px 28px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 60px;
+    cursor: pointer;
+    transition: all 0.25s;
+    color: #2c3e4e;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.tab-btn.active {
+    background: #1c5a6a;
+    color: white;
+    transform: scale(1.02);
+    box-shadow: 0 8px 18px rgba(28, 90, 106, 0.3);
+}
+
+.tab-btn:hover:not(.active) {
+    background: #cbd5e1;
+    transform: translateY(-2px);
+}
+
+.tab-content {
+    display: none;
+    animation: fadeIn 0.3s ease;
+}
+
+.tab-content.active-content {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+
+/* ----- Адаптивная сетка карточек (Grid + auto-fit) ----- */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background: white;
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: 0 12px 24px -12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 24px 36px -12px rgba(0, 0, 0, 0.25);
+}
+
+.card-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+}
+
+.card-body {
+    padding: 20px 22px 26px;
+}
+
+.card-body h3 {
+    font-size: 1.7rem;
+    margin-bottom: 12px;
+    color: #0b2b40;
+}
+
+.card-body p {
+    color: #2d4a5c;
+    line-height: 1.45;
+}
+
+/* ----- Планировщик: прогресс-бар + слайдер ----- */
+.planner-section {
+    background: #ffffffcc;
+    backdrop-filter: blur(4px);
+    background: white;
+    border-radius: 48px;
+    padding: 30px 35px;
+    margin-bottom: 50px;
+    box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.1);
+    border: 1px solid #eef3fc;
+}
+
+.planner-section h2 {
+    text-align: center;
+    margin-bottom: 28px;
+    color: #1c5a6a;
+    font-size: 1.9rem;
+}
+
+.progress-widget {
+    max-width: 550px;
+    margin: 0 auto 35px;
+}
+
+.progress-container {
+    background-color: #e2e8f0;
+    border-radius: 40px;
+    height: 28px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    box-shadow: inset 0 1px 3px #0000001a;
+}
+
+.progress-bar {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, #f59e0b, #f97316);
+    border-radius: 40px;
+    transition: width 0.2s ease-out;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 12px;
+    color: white;
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+
+.slider-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+input[type="range"] {
+    flex: 1;
+    height: 6px;
+    -webkit-appearance: none;
+    background: #cbd5e1;
+    border-radius: 5px;
+    outline: none;
+}
+
+input[type="range"]:focus {
+    outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 22px;
+    height: 22px;
+    background: #f97316;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    border: 2px solid white;
+}
+
+#sliderValue {
+    font-weight: 700;
+    background: #0b2b40;
+    color: white;
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 1rem;
+    min-width: 65px;
+    text-align: center;
+}
+
+.progress-hint {
+    font-size: 0.85rem;
+    color: #5e7e8f;
+    margin-top: 15px;
+    text-align: center;
+}
+
+/* ----- Кастомный чекбокс (UX) ----- */
+.newsletter-box {
+    margin-top: 25px;
+    text-align: center;
+    padding: 20px;
+    background: #f8fafc;
+    border-radius: 48px;
+}
+
+.custom-checkbox-container {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 500;
+    user-select: none;
+    padding: 8px 25px;
+    background: white;
+    border-radius: 100px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.custom-checkbox-container input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.checkmark {
+    position: relative;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-color: #fff;
+    border: 2px solid #1c5a6a;
+    border-radius: 8px;
+    transition: 0.1s;
+}
+
+.custom-checkbox-container input:checked ~ .checkmark {
+    background-color: #1c5a6a;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 8px;
+    top: 3px;
+    width: 6px;
+    height: 12px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.custom-checkbox-container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.subscribe-message {
+    margin-top: 15px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #1e7e34;
+}
+
+/* ----- Футер ----- */
+.footer {
+    background: #0b2b40;
+    color: #bdd3e0;
+    text-align: center;
+    padding: 30px 0;
+    margin-top: 50px;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+}
+
+/* ----- Адаптивные мелкие правки ----- */
+@media (max-width: 680px) {
+    .tab-buttons {
+        gap: 10px;
+    }
+    .tab-btn {
+        padding: 8px 20px;
+        font-size: 1rem;
+    }
+    .planner-section {
+        padding: 25px 18px;
+    }
+    .cards-grid {
+        gap: 18px;
+    }
+}

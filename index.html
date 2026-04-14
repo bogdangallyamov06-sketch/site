@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Путешествия мечты | Интерактивный гид</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <h1 id="typewriterTitle" class="title"></h1>
+            <p class="subtitle">Выберите направление и начните планировать своё приключение</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Блок с табами -->
+        <section class="tabs-section">
+            <div class="tab-buttons">
+                <button class="tab-btn active" data-tab="europe">Европа</button>
+                <button class="tab-btn" data-tab="asia">Азия</button>
+                <button class="tab-btn" data-tab="america">Америка</button>
+            </div>
+
+            <!-- Контент для Европы -->
+            <div id="europe" class="tab-content active-content">
+                <div class="cards-grid">
+                    <div class="card">
+                        <img src="https://vizavsem.by/blog/pochemu-stoit-posetit-italiyu.html" alt="Италия" class="card-img">
+                        <div class="card-body">
+                            <h3>Италия</h3>
+                            <p>Колизей, пицца и берега Амальфи. Идеальное место для романтиков и гурманов.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=500&h=350&fit=crop" alt="Франция" class="card-img">
+                        <div class="card-body">
+                            <h3>Франция</h3>
+                            <p>Эйфелева башня, Лазурный берег и ароматы свежей выпечки.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1533105079780-92b9be482077?w=500&h=350&fit=crop" alt="Исландия" class="card-img">
+                        <div class="card-body">
+                            <h3>Исландия</h3>
+                            <p>Северное сияние, гейзеры и фьорды для любителей дикой природы.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Контент для Азии -->
+            <div id="asia" class="tab-content">
+                <div class="cards-grid">
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1528164344705-47542687000d?w=500&h=350&fit=crop" alt="Япония" class="card-img">
+                        <div class="card-body">
+                            <h3>Япония</h3>
+                            <p>Токио, сакура и древние храмы Киото. Будущее и традиции в одном месте.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=500&h=350&fit=crop" alt="Таиланд" class="card-img">
+                        <div class="card-body">
+                            <h3>Таиланд</h3>
+                            <p>Белоснежные пляжи, экзотическая еда и ночные рынки</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=500&h=350&fit=crop" alt="Индия" class="card-img">
+                        <div class="card-body">
+                            <h3>Индия</h3>
+                            <p>Тадж-Махал, йога и невероятное разнообразие красок.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Контент для Америки -->
+            <div id="america" class="tab-content">
+                <div class="cards-grid">
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=500&h=350&fit=crop" alt="США" class="card-img">
+                        <div class="card-body">
+                            <h3>США</h3>
+                            <p>Нью-Йорк, Гранд-Каньон и калифорнийское солнце.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1526392060635-9d6019884377?w=500&h=350&fit=crop" alt="Мексика" class="card-img">
+                        <div class="card-body">
+                            <h3>Мексика</h3>
+                            <p>Древние пирамиды майя, кактусы и яркая культура.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1589909202802-8c72e6fe9bb3?w=500&h=350&fit=crop" alt="Канада" class="card-img">
+                        <div class="card-body">
+                            <h3>Канада</h3>
+                            <p>Ниагарский водопад, кленовый сироп и национальные парки.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Блок с планировщиком и чекбоксом -->
+        <section class="planner-section">
+            <h2>Насколько вы готовы к путешествию?</h2>
+            <div class="progress-widget">
+                <div class="progress-container">
+                    <div class="progress-bar" id="progressBar" style="width: 0%;"></div>
+                </div>
+                <div class="slider-container">
+                    <input type="range" id="readinessSlider" min="0" max="100" value="0">
+                    <span id="sliderValue">0%</span>
+                </div>
+                <p class="progress-hint">Передвиньте ползунок, чтобы увеличить вашу готовность!</p>
+            </div>
+
+            <div class="newsletter-box">
+                <label class="custom-checkbox-container">
+                    <input type="checkbox" id="subscribeCheckbox">
+                    <span class="checkmark"></span>
+                    Подписаться на рассылку лучших предложений
+                </label>
+                <p id="subscribeMessage" class="subscribe-message"></p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2026 Путешествия мечты. Вдохновляйтесь и открывайте мир!</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
